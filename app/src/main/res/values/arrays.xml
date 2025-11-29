@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="teams">
+        <item>— Select —</item>
+        <item>Arsenal</item>
+        <item>Chelsea</item>
+        <item>Liverpool</item>
+        <item>Manchester City</item>
+        <item>Manchester United</item>
+        <item>Real Madrid</item>
+        <item>Barcelona</item>
+        <item>Atletico Madrid</item>
+        <item>Bayern Munich</item>
+        <item>PSG</item>
+        <item>Inter</item>
+        <item>AC Milan</item>
+        <item>Juventus</item>
+        <item>Napoli</item>
+        <item>Borussia Dortmund</item>
+    </string-array>
+</resources>
