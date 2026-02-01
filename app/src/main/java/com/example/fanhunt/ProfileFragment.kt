@@ -17,6 +17,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private lateinit var tvName: TextView
     private lateinit var tvEmail: TextView
     private lateinit var spTeam: Spinner
+    private lateinit var tvPoints: TextView
     private lateinit var btnSave: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -25,6 +26,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         tvName = view.findViewById(R.id.tvName)
         tvEmail = view.findViewById(R.id.tvEmail)
         spTeam = view.findViewById(R.id.spTeam)
+        tvPoints = view.findViewById(R.id.tvPoints)
         btnSave = view.findViewById(R.id.btnSave)
 
         ArrayAdapter.createFromResource(
@@ -53,8 +55,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     val adapter = spTeam.adapter as ArrayAdapter<String>
                     val idx = adapter.getPosition(fav)
                     if (idx >= 0) spTeam.setSelection(idx)
-
                 }
+
+                val points = profile?.totalPoints ?: 0
+                tvPoints.text = "Points: $points"
             }
             .addOnFailureListener { e ->
                 Toast.makeText(requireContext(), "Load error: ${e.message}", Toast.LENGTH_LONG).show()

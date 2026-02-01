@@ -16,6 +16,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.45" />
 
+        <!-- Layout for login where user can input details into text fields-->
         <LinearLayout
             android:id="@+id/loginContainer"
             android:orientation="vertical"

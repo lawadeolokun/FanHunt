@@ -16,6 +16,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.30" />
 
+        <!-- Layout for register page with text fields the user can input details-->
         <LinearLayout
             android:id="@+id/registerContainer"
             android:orientation="vertical"

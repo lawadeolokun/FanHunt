@@ -1,4 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Displays the menu bar at the bottom of the screen-->
     <item
         android:id="@+id/nav_home"
         android:title="Home"
@@ -11,4 +13,9 @@
         android:id="@+id/nav_profile"
         android:title="Profile"
         android:icon="@android:drawable/ic_menu_myplaces"/>
+    <item
+        android:id="@+id/nav_leaderboard"
+        android:title="Leaderboard"
+        android:icon="@android:drawable/ic_menu_add"/>
+
 </menu>
