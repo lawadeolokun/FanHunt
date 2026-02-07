@@ -4,5 +4,6 @@ data class UserProfile(
     val displayName: String = "",
     val email: String = "",
     val favouriteTeam: String = "",
-    val totalPoints: Long = 0
+    val totalPoints: Long = 0,
+    val scannedQrs: List<String> = emptyList()
 )

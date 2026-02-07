@@ -4,18 +4,22 @@
     <item
         android:id="@+id/nav_home"
         android:title="Home"
-        android:icon="@android:drawable/ic_menu_view"/>
+        android:icon="@drawable/ic_home"/>
     <item
         android:id="@+id/nav_scan"
         android:title="Scan"
-        android:icon="@android:drawable/ic_menu_camera"/>
+        android:icon="@drawable/ic_camera"/>
     <item
         android:id="@+id/nav_profile"
         android:title="Profile"
-        android:icon="@android:drawable/ic_menu_myplaces"/>
+        android:icon="@drawable/profile"/>
     <item
         android:id="@+id/nav_leaderboard"
         android:title="Leaderboard"
-        android:icon="@android:drawable/ic_menu_add"/>
+        android:icon="@drawable/ic_leaderboard"/>
+    <item
+        android:id="@+id/rewardsFragment"
+        android:icon="@drawable/ic_rewards"
+        android:title="Rewards" />
 
 </menu>

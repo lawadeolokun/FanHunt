@@ -31,4 +31,11 @@
         android:label="Leaderboard"
         tools:layout="@layout/fragment_leaderboard" />
 
+    <fragment
+        android:id="@+id/rewardsFragment"
+        android:name="com.example.fanhunt.RewardsFragment"
+        android:label="Rewards"
+        tools:layout="@layout/fragment_rewards" />
+
+
 </navigation>
