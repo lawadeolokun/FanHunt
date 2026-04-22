@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <!-- 🔥 REWARDS TITLE -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rewards"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- 🔥 REWARDS LIST -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rewardsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+    <!-- 🔥 UPLOAD BUTTON -->
+    <Button
+        android:id="@+id/btnUploadPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Photo"
+        android:layout_marginTop="16dp" />
+
+    <!-- 🔥 PHOTO VOTING TITLE -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photo Voting"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+    <!-- 🔥 TOP 3 PHOTOS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <!-- 🥇 TOP 1 -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="120dp"
+            android:layout_margin="4dp">
+
+            <ImageView
+                android:id="@+id/top1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/votes1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_gravity="bottom|end"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:padding="4dp"/>
+        </FrameLayout>
+
+        <!-- 🥈 TOP 2 -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="120dp"
+            android:layout_margin="4dp">
+
+            <ImageView
+                android:id="@+id/top2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/votes2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_gravity="bottom|end"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:padding="4dp"/>
+        </FrameLayout>
+
+        <!-- 🥉 TOP 3 -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="120dp"
+            android:layout_margin="4dp">
+
+            <ImageView
+                android:id="@+id/top3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/votes3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_gravity="bottom|end"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"
+                android:padding="4dp"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

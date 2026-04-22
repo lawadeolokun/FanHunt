@@ -74,7 +74,7 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-common")
-
+    implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
     // Navigation
     val navVersion = "2.8.4"
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
@@ -84,4 +84,11 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
 
     implementation("com.google.android.gms:play-services-location:21.0.1")
+
+    // AR
+    implementation("com.google.ar:core:1.43.0")
+    implementation("io.github.sceneview:arsceneview:1.2.6")
+
+    implementation("com.github.bumptech.glide:glide:4.15.1")
 }
+

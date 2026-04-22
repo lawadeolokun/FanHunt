@@ -1,0 +1,47 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="#1E1E2E">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Reward Name -->
+        <TextView
+            android:id="@+id/rewardName"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Cost -->
+        <TextView
+            android:id="@+id/rewardCost"
+            android:textColor="#B0B0B0"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Button -->
+        <Button
+            android:id="@+id/btnRedeem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Redeem"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#A78BFA"
+            android:textColor="@android:color/black"/>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

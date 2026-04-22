@@ -5,10 +5,12 @@
         android:id="@+id/nav_home"
         android:title="Home"
         android:icon="@drawable/ic_home"/>
+    <!--
     <item
         android:id="@+id/nav_scan"
         android:title="Scan"
         android:icon="@drawable/ic_camera"/>
+        -->
     <item
         android:id="@+id/nav_profile"
         android:title="Profile"
@@ -21,5 +23,10 @@
         android:id="@+id/rewardsFragment"
         android:icon="@drawable/ic_rewards"
         android:title="Rewards" />
+    <item
+        android:id="@+id/arFragment"
+        android:icon="@drawable/ic_ar"
+        android:title="AR" />
+
 
 </menu>

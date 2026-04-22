@@ -37,5 +37,12 @@
         android:label="Rewards"
         tools:layout="@layout/fragment_rewards" />
 
+    <fragment
+        android:id="@+id/arFragment"
+        android:name="com.example.fanhunt.ARScreenFragment"
+        android:label="AR"
+        tools:layout="@layout/fragment_ar" />
+
+
 
 </navigation>
