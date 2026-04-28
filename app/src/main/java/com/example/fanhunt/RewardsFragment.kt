@@ -146,13 +146,13 @@ class RewardsFragment : Fragment(R.layout.fragment_rewards) {
     }
 
     // =========================
-    // 👍 VOTE
+    // VOTE
     // =========================
     private fun votePhoto(photo: PhotoPost) {
 
         val userId = auth.currentUser?.uid ?: return
 
-        // 🔒 PREVENT DOUBLE VOTE
+        // PREVENT DOUBLE VOTE
         if (photo.votedBy.contains(userId)) {
             Toast.makeText(context, "Already voted", Toast.LENGTH_SHORT).show()
             return
