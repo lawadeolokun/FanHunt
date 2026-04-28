@@ -207,7 +207,7 @@ class ARScreenFragment : Fragment(R.layout.fragment_ar) {
         hasSpawned = true
 
         val cameraPose = frame.camera.pose
-        val cameraY    = cameraPose.ty()
+        val cameraY    = cameraPose.ty() - 1.2f  // drop below eye level to floor/surface height
 
         // Direction vectors from camera orientation
         val qx = cameraPose.qx(); val qy = cameraPose.qy()
@@ -248,7 +248,7 @@ class ARScreenFragment : Fragment(R.layout.fragment_ar) {
                 scaleToUnits = scale
             )
 
-            model.rotation    = io.github.sceneview.math.Rotation(90f, 0f, 0f)
+            model.rotation    = io.github.sceneview.math.Rotation(-90f, 0f, 0f)  // upright: flip X axis
             model.isTouchable = true
 
             val spawned = SpawnedObject(anchorNode, model, def.id, def.label, points)
@@ -510,6 +510,18 @@ class ARScreenFragment : Fragment(R.layout.fragment_ar) {
         }
     }
 
+    // Max real-world distance in metres the user must be within to collect a trophy
+    private val collectionRadiusMetres = 1.5f
+
+    // Returns the 3D distance in metres between the camera and a world pose
+    private fun distanceToCamera(frame: Frame, pose: Pose): Float {
+        val cam = frame.camera.pose
+        val dx = cam.tx() - pose.tx()
+        val dy = cam.ty() - pose.ty()
+        val dz = cam.tz() - pose.tz()
+        return sqrt((dx * dx + dy * dy + dz * dz).toDouble()).toFloat()
+    }
+
     private fun handleTap(tapX: Float, tapY: Float) {
         if (gameOver) return
         val frame = latestFrame ?: return
@@ -520,13 +532,32 @@ class ARScreenFragment : Fragment(R.layout.fragment_ar) {
         val hitRadius = maxOf(arView.width, arView.height) * 0.25f
 
         for (obj in spawnedObjects) {
-            val pos = getScreenPos(frame, obj.anchorNode.anchor?.pose ?: continue) ?: continue
+            val anchorPose = obj.anchorNode.anchor?.pose ?: continue
+
+            // Check real-world distance first — user must be within collectionRadiusMetres
+            val worldDist = distanceToCamera(frame, anchorPose)
+            if (worldDist > collectionRadiusMetres) continue
+
+            val pos = getScreenPos(frame, anchorPose) ?: continue
             val dx  = tapX - pos.first
             val dy  = tapY - pos.second
             val dist = sqrt((dx * dx + dy * dy).toDouble()).toFloat()
             if (dist <= hitRadius && dist < closestDist) {
                 closestDist = dist
                 closest = obj
+            }
+        }
+
+        if (closest == null) {
+            // Tap landed on screen but no trophy was close enough — give feedback
+            val nearestDist = spawnedObjects.mapNotNull { obj ->
+                val pose = obj.anchorNode.anchor?.pose ?: return@mapNotNull null
+                distanceToCamera(frame, pose)
+            }.minOrNull()
+
+            if (nearestDist != null && nearestDist <= collectionRadiusMetres * 3f) {
+                val metres = String.format("%.1f", nearestDist)
+                Toast.makeText(requireContext(), "Get closer! ${metres}m away", Toast.LENGTH_SHORT).show()
             }
         }
 
